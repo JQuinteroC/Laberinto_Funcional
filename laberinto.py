@@ -13,7 +13,7 @@ def buscar_en_matriz(matriz, cont, para):
 def mover(Xy, Xx, Py, Px, matriz):
   if matriz[Py][Px] == '1':
     return (Xy, Xx)
-  return (Py, Px)  
+  return (Py, Px)   
     
 #print(len(mapa('matriz.txt')))
 print(buscar_en_matriz(mapa('matriz.txt'),0))
