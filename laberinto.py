@@ -13,7 +13,7 @@ def buscar_en_matriz(matriz, cont, para):
 """
 Intento 2: mover derecha-izquierda o arriba-abajo
 """
-
+"""
 #Funcion para moverse a la derecha
 def moverDer(y, x, matriz, movimientos, aux):
   print(movimientos)
@@ -47,6 +47,66 @@ def moverVer(y, x, matriz, movimientos, aux):
     moverVer(y-1,x,matriz,movimientos+[[y,x]], -1)
   elif matriz[y+1][x] != '1':
     moverVer(y+1,x,matriz,movimientos+[[y,x]], 1)
+"""
+
+"""
+Intento 3: Segregar los movimientos y controlarlos por una función master
+"""
+# Funcion por movimiento
+def moverDerecha(y,x,matriz,movimientos):
+  print(movimientos)
+  if (x+1) >= len(matriz[0]) or (x+1) < 0:
+    pass
+  else:  
+    moverDerecha(y,x+1,matriz,movimientos+[[y,x]])
+
+def moverArriba(y,x,matriz,movimientos):
+  print(movimientos)
+  if (y-1) >= len(matriz) or (y-1) < 0:
+    pass
+  else:
+    moverArriba(y-1,x,matriz,movimientos+[[y,x]])
+    
+def moverIzquieda(y,x,matriz,movimientos):
+  print(movimientos)
+  if (x-1) >= len(matriz[0]) or (x-1) < 0:
+    pass
+  else:
+    moverIzquieda(y,x-1,matriz,movimientos)
+
+def moverAbajo(y, x, matriz, movimientos):
+  print(movimientos)
+  if (y+1) >= len(matriz) or (y+1) < 0:
+    pass
+  else:
+    moverAbajo(y+1, x, matriz, movimientos)
+
+## Funcion principal de movimiento
+def mover(y,x,matriz,movimientos):
+  if(buscar_en_matriz(matriz,0,'X')[1] == buscar_en_matriz(matriz,0,'Y')[1] and buscar_en_matriz(matriz,0,'X')[0] < buscar_en_matriz(matriz,0,'Y')[0] ):
+  #Abajo
+    pass  
+  elif(buscar_en_matriz(matriz,0,'X')[1] == buscar_en_matriz(matriz,0,'Y')[1] and buscar_en_matriz(matriz,0,'X')[0] > buscar_en_matriz(matriz,0,'Y')[0]):
+  #moverArriba
+    pass
+  elif(buscar_en_matriz(matriz,0,'X')[0] == buscar_en_matriz(matriz,0,'Y')[0] and buscar_en_matriz(matriz,0,'X')[1] > buscar_en_matriz(matriz,0,'Y')[1]):
+  #Izquierda
+    pass
+  elif(buscar_en_matriz(matriz,0,'X')[0] == buscar_en_matriz(matriz,0,'Y')[0] and buscar_en_matriz(matriz,0,'X')[1] < buscar_en_matriz(matriz,0,'Y')[1]):
+  #Derecha
+    pass
+  elif(buscar_en_matriz(matriz,0,'X')[0] > buscar_en_matriz(matriz,0,'Y')[0] and buscar_en_matriz(matriz,0,'X')[1] < buscar_en_matriz(matriz,0,'Y')[1]):
+  #Derecha arriba
+    pass
+  elif(buscar_en_matriz(matriz,0,'X')[0] < buscar_en_matriz(matriz,0,'Y')[0] and buscar_en_matriz(matriz,0,'X')[1] < buscar_en_matriz(matriz,0,'Y')[1]):
+  #Derecha abajo   
+    pass
+  elif(buscar_en_matriz(matriz,0,'X')[0] > buscar_en_matriz(matriz,0,'Y')[0] and buscar_en_matriz(matriz,0,'X')[1] > buscar_en_matriz(matriz,0,'Y')[1]):
+  #Izquierda arriba
+    pass
+  elif(buscar_en_matriz(matriz,0,'X')[0] < buscar_en_matriz(matriz,0,'Y')[0] and buscar_en_matriz(matriz,0,'X')[1] > buscar_en_matriz(matriz,0,'Y')[1]):
+  #Izquierda abajo   
+    pass
 
 """
 11 1 1 1 1 1 1 1 1 1 1
